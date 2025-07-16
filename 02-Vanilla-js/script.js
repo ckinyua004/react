@@ -1,4 +1,4 @@
-const bookData = [
+export const bookData = [
   {
     id: 1,
     title: "The Lord of the Rings",
