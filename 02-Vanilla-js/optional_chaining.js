@@ -1,16 +1,18 @@
 import { bookData } from "./script.js";
 
-function getBook(){
-    return bookData[0]
+function getBook() {
+    return bookData[0];
 }
 
-const book = getBook()
+const book = getBook();
 
-function getTotalReview(book){
-    const goodReads = book.reviews.goodreads.reviewscount
-    const librarything = book.reviews.librarything?.ratingscount ?? 0
+function getTotalReview(book) {
+    if (!book || !book.reviews) return 0;
 
-    return goodReads + librarything
+    const goodReads = book.reviews.goodreads?.reviewscount ?? 0;
+    const librarything = book.reviews.librarything?.ratingscount ?? 0;
+
+    return goodReads + librarything;
 }
 
-console.log(getTotalReview(book))
+console.log(getTotalReview(book));
